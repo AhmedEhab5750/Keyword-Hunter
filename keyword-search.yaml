@@ -1,0 +1,30 @@
+id: keyword-search
+
+info:
+  name: Keyword Search
+  author: 0_oNoProblem
+  severity: info
+  description: |
+    Searches the provided URLs for specific keywords defined in an external file, following redirects.
+  tags: keyword, search, redirects
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    redirects: true
+    payloads:
+      keywords: keywords.txt # External file containing keywords
+    attack: batteringram
+    matchers:
+      - type: word
+        words:
+          - "{{keywords}}"
+        condition: or
+        part: body
+      - type: word
+        words:
+          - "{{keywords}}"
+        condition: or
+        part: header
+    matchers-condition: or
