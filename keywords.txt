@@ -1,0 +1,11 @@
+login
+workspace
+create account
+signup
+sign-up
+sign up
+invite user
+dashboard
+register
+invite
+roles
